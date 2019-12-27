@@ -81,3 +81,8 @@ div#app {
   margin-left: 90px;
   color: #000000;
 }
+
+#app button.reset {
+  margin-left: 80px;
+  background-color: #ff000f;
+}

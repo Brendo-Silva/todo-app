@@ -1,6 +1,7 @@
 let listElement = document.querySelector('#app ul');
 let inputElement = document.querySelector('#app input');
 let btnElement = document.querySelector('#app button');
+let btnReset = document.querySelector('.reset');
 
 let todos = JSON.parse(localStorage.getItem('list_todos')) || [];
 
@@ -45,6 +46,7 @@ function addTodo() {
 }
 
 btnElement.addEventListener('click', addTodo);
+btnReset.addEventListener('click', deleteLocalStorage);
 
 function deleteTodo(pos) {
   todos.splice(pos, 1);
@@ -54,4 +56,10 @@ function deleteTodo(pos) {
 
 function saveToStorage() {
   localStorage.setItem('list_todos', JSON.stringify(todos));
+}
+
+function deleteLocalStorage(){
+  localStorage.clear();
+  window.location.reload();
+  renderTodos();
 }
